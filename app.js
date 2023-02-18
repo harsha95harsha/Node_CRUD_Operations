@@ -16,10 +16,7 @@ app.get('/hello', (req, res) => {
 
 app.use('/api/v1/users', users)
 
-//app.get('/api/v1/users')         -get the users 
-//app.get('/api/v1/users/:id')       -get id of a single user
-//app.post('/api/v1/users')      -create a new user with details
-//app.put('/api/v1/users/:id')      -update a user details
+
 
 
 
