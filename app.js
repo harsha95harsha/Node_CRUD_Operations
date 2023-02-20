@@ -9,10 +9,6 @@ require('dotenv').config()
 
 app.use(express.json()
 )
-//routes 
-app.get('/hello', (req, res) => {
-    res.send('User Logs App')
-})
 
 app.use('/api/v1/users', users)
 
@@ -20,7 +16,7 @@ app.use('/api/v1/users', users)
 
 
 
-const port = 3500
+const port = 3600
 const start = async () => {
     try {
         await connectDB(process.env.MONGO_URI)

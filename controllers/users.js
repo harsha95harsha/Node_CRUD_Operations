@@ -69,10 +69,26 @@ const updateUser = async (req, res) => {
         if (!user) {
             res.status(404).json({ msg: `No user with id : ${paramsResult.id}` })
         }
-        res.json({ user })
+        res.status(200).json({ user })
     }
     catch (error) {
         res.status(500).json({ msg: error })
+    }
+}
+
+const deleteUser = async (req, res) => {
+    try {
+        const { id: userID } = req.params
+        const user = await User.findOneAndDelete({ _id: userID })
+        if (!user) {
+            res.status(404).json({ msg: `No user with id : ${userID}` })
+        }
+        res.status(200).json({ user })
+    }
+    catch (error) {
+        res.status(500).json({ msg: error })
+
+
     }
 }
 
