@@ -81,7 +81,7 @@ const deleteUser = async (req, res) => {
         const opResult = req.params
         const user = await User.findOneAndDelete({ _id: opResult.id })
         if (!user) {
-            res.status(404).json({ msg: `No user with id : ${userID}` })
+            res.status(404).json({ msg: `No user with id : ${opResult.id}` })
         }
         res.status(200).json({ user })
     }
