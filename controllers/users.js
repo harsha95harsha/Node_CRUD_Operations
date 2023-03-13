@@ -63,11 +63,11 @@ const getUserId = async (req, res) => {
 const updateUser = async (req, res) => {
 
     try {
-        const paramsResult = req.params
+        const { id: paramsResult} = req.params
         const data = req.body
-        const user = await User.findOneAndUpdate({ _id: paramsResult.id }, data)
+        const user = await User.findOneAndUpdate({ _id: paramsResult }, data)
         if (!user) {
-            res.status(404).json({ msg: `No user with id : ${paramsResult.id}` })
+            res.status(404).json({ msg: `No user with id : ${paramsResult}` })
         }
         res.status(200).json({ user })
     }
@@ -78,10 +78,10 @@ const updateUser = async (req, res) => {
 
 const deleteUser = async (req, res) => {
     try {
-        const opResult = req.params
-        const user = await User.findOneAndDelete({ _id: opResult.id })
+        const {id:opResult} = req.params
+        const user = await User.findOneAndDelete({ _id: opResult})
         if (!user) {
-            res.status(404).json({ msg: `No user with id : ${opResult.id}` })
+            res.status(404).json({ msg: `No user with id : ${opResult}` })
         }
         res.status(200).json({ user })
     }
